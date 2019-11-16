@@ -6,6 +6,7 @@ import {
   staticReportableEventsData,
   staticRadarData,
   staticBehavior2vecData,
+  staticParallelData,
 } from './service';
 
 const initState = {
@@ -19,7 +20,8 @@ const initState = {
   calendarData: [],
   reportableEventsData: [],
   radarData: {},
-  behavior2vecData: {}
+  behavior2vecData: {},
+  parallelData: []
 };
 const Model = {
   namespace: 'logAnalysis',
@@ -81,13 +83,11 @@ const Model = {
       });
     },
 
-    *fetchSalesData(_, { call, put }) {
-      const response = yield call(fakeChartData);
+    *fetchParallelData(_, { call, put }) {
+      const response = yield call(staticParallelData);
       yield put({
         type: 'save',
-        payload: {
-          salesData: response.salesData,
-        },
+        payload: { parallelData: response },
       });
     },
   },

@@ -27,3 +27,7 @@ export async function staticRadarData() {
 export async function staticBehavior2vecData() {
   return request('/api/static_behavior2vec_data');
 }
+
+export async function staticParallelData() {
+  return request('/api/static_parallel_data');
+}
