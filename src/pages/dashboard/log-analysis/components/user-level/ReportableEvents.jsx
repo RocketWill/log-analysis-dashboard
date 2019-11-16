@@ -30,9 +30,10 @@ class ReportableEvents extends Component {
   )
 
   render() {
+    const {loading} = this.props;
     const {reportableEventsData} = this.props.logAnalysis;
     return (
-      <Card title="Reportable Events" style={{height: '507px'}}>
+      <Card title="Reportable Events" style={{height: '507px'}} loading={loading}>
         {this.listEvents(reportableEventsData)}
       </Card>
     );

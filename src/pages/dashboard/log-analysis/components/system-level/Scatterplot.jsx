@@ -148,10 +148,11 @@ class Scatterplot extends Component {
   );
 
   render() {
+    const {loading} = this.props;
     const themeColor = ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'];
     const {scatterplotData} = this.props.logAnalysis;
     return (
-      <Card title="Scatterplot">
+      <Card title="Scatterplot" loading={loading}>
         {scatterplotData && (
           <ReactEcharts
             option={this.getChartOptions(scatterplotData, themeColor)}

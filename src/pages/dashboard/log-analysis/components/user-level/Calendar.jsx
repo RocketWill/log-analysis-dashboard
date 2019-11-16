@@ -126,13 +126,14 @@ class Calendar extends Component {
   });
 
   render() {
+    const {loading} = this.props;
     const { calendarData } = this.props.logAnalysis;
     const themeColor = ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'];
     let onEvents = {
       click: this.onChartClick, // 設定點擊事件：切換欲顯示用戶數據
     };
     return (
-      <Card title="Calendar">
+      <Card title="Calendar" loading={loading}>
         {calendarData && (
           <ReactEcharts
             option={this.getChartOptions(calendarData, themeColor)}

@@ -149,10 +149,11 @@ class Behavior2vec extends Component {
   };
 
   render() {
+    const {loading} = this.props;
     const themeColor = ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'];
     const {behavior2vecData} = this.props.logAnalysis;
     return (
-      <Card title="Behavior2vec">
+      <Card title="Behavior2vec" loading={loading}>
         {behavior2vecData && behavior2vecData['words'] && (
           <ReactEcharts
             option={this.getChartOptions(behavior2vecData, themeColor)}

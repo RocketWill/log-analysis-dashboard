@@ -109,6 +109,7 @@ class Parallel extends Component {
   };
 
   render() {
+    const {loading} = this.props;
     const themeColor = ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'];
     const { parallelData } = this.props.logAnalysis;
     const { currentUser } = this.props.logAnalysis.params;
@@ -117,7 +118,7 @@ class Parallel extends Component {
       click: this.onChartClick, // 設定點擊事件：切換欲顯示用戶數據
     };
     return (
-      <Card title="Parallel">
+      <Card title="Parallel" loading={loading}>
         {displayData && (
           <ReactEcharts
             option={this.getChartOptions(displayData, themeColor)}

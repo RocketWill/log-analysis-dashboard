@@ -94,10 +94,11 @@ class FlowSankey extends Component {
   });
 
   render() {
+    const {loading} = this.props;
     const {sankeyData} = this.props.logAnalysis;
     const themeColor = ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'];
     return (
-      <Card title="Flow Sankey">
+      <Card title="Flow Sankey" loading={loading}>
         {sankeyData['flowData'] && (
           <ReactEcharts
             option={this.getChartOptions(sankeyData, themeColor)}

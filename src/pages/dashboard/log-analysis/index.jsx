@@ -4,14 +4,17 @@ import { GridContent } from '@ant-design/pro-layout';
 import { connect } from 'dva';
 import { getTimeDistance } from './utils/utils';
 import styles from './style.less';
-import Filters from './components/Filters';
-import FlowSankey from './components/system-level/Flow-Sankey';
-import Scatterplot from './components/system-level/Scatterplot';
-import Calendar from './components/user-level/Calendar';
-import ReportableEvents from './components/user-level/ReportableEvents';
-import Radar from './components/user-level/Radar';
-import Behavior2vec from './components/user-level/Behavior2vec';
-import Parallel from './components/user-level/Parallel';
+
+const Filters = React.lazy(() => import('./components/Filters'));
+const FlowSankey = React.lazy(() => import('./components/system-level/Flow-Sankey'));
+const Scatterplot = React.lazy(() => import('./components/system-level/Scatterplot'));
+const Calendar = React.lazy(() => import('./components/user-level/Calendar'));
+const ReportableEvents = React.lazy(() => import('./components/user-level/ReportableEvents'));
+const Radar = React.lazy(() => import('./components/user-level/Radar'));
+const Behavior2vec = React.lazy(() => import('./components/user-level/Behavior2vec'));
+const Parallel = React.lazy(() => import('./components/user-level/Parallel'));
+
+
 
 
 @connect(({ logAnalysis, loading }) => ({

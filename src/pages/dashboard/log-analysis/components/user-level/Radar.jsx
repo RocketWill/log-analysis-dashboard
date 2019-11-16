@@ -95,12 +95,13 @@ class Radar extends Component {
   }
 
   render() {
+    const {loading} = this.props;
     const themeColor = ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'];
     const {radarData} = this.props.logAnalysis;
     const {currentUser} = this.props.logAnalysis.params;
     const displayData = this.getDisplayData(radarData, currentUser);
     return (
-      <Card title="Radar">
+      <Card title="Radar" loading={loading}>
         {radarData && (
           <ReactEcharts
             option={this.getChartOptions(displayData, themeColor)}
