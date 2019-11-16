@@ -1,9 +1,10 @@
-import { fakeChartData, staticSankyData, staticScatterplotData } from './service';
+import { fakeChartData, staticSankyData, staticScatterplotData, staticCalendarData } from './service';
 
 const initState = {
   params: {
     startTime: '',
     endTime: '',
+    currentUser: ""
   },
   visitData: [],
   visitData2: [],
@@ -16,7 +17,8 @@ const initState = {
   salesTypeDataOffline: [],
   radarData: [],
   sankeyData: {},
-  scatterplotData: {}
+  scatterplotData: {},
+  calendarData: []
 };
 const Model = {
   namespace: 'logAnalysis',
@@ -43,6 +45,14 @@ const Model = {
       yield put({
         type: 'save',
         payload: {scatterplotData: response},
+      });
+    },
+
+    *fetchCalendarData(_, { call, put }) {
+      const response = yield call(staticCalendarData);
+      yield put({
+        type: 'save',
+        payload: {calendarData: response},
       });
     },
 

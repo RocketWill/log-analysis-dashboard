@@ -95,7 +95,6 @@ class FlowSankey extends Component {
 
   render() {
     const {sankeyData} = this.props.logAnalysis;
-    console.log(sankeyData["flowData"]);
     return (
       <Card title="Flow Sankey">
         {sankeyData['flowData'] && (
@@ -103,7 +102,7 @@ class FlowSankey extends Component {
             option={this.getChartOptions(sankeyData)}
             notMerge={true}
             style={{height: '600px', width: '100%'}}
-            //lazyUpdate={true}
+            lazyUpdate={true}
           />
         )}
       </Card>

@@ -150,13 +150,13 @@ class Scatterplot extends Component {
   render() {
     const {scatterplotData} = this.props.logAnalysis;
     return (
-      <Card title="Scatter Plot">
+      <Card title="Scatterplot">
         {scatterplotData && (
           <ReactEcharts
             option={this.getChartOptions(scatterplotData)}
             notMerge={true}
             style={{height: '600px', width: '100%'}}
-            //lazyUpdate={true}
+            lazyUpdate={true}
           />
         )}
       </Card>

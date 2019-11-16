@@ -11,3 +11,7 @@ export async function staticSankyData() {
 export async function staticScatterplotData() {
   return request('/api/static_scatterplot_data');
 }
+
+export async function staticCalendarData() {
+  return request('/api/static_calendar_data');
+}

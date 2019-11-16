@@ -7,6 +7,10 @@ import styles from './style.less';
 import Filters from './components/Filters';
 import FlowSankey from './components/system-level/Flow-Sankey';
 import Scatterplot from './components/system-level/Scatterplot';
+import Calendar from './components/user-level/Calendar';
+import ErrorLogs from './components/user-level/ErrorLogs';
+import Radar from './components/user-level/Radar';
+
 
 @connect(({ logAnalysis, loading }) => ({
   logAnalysis,
@@ -99,6 +103,30 @@ class Analysis extends Component {
             <Col span={10}>
               <Suspense fallback={null}>
                 <Scatterplot />
+              </Suspense>
+            </Col>
+          </Row>
+
+          <Row
+            gutter={24}
+            type="flex"
+            style={{
+              marginTop: 24,
+            }}
+          >
+            <Col span={10}>
+              <Suspense fallback={null}>
+                <Calendar />
+              </Suspense>
+            </Col>
+            <Col span={6}>
+              <Suspense fallback={null}>
+                <ErrorLogs />
+              </Suspense>
+            </Col>
+            <Col span={8}>
+              <Suspense fallback={null}>
+                <Radar />
               </Suspense>
             </Col>
           </Row>

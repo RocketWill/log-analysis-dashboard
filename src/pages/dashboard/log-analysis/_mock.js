@@ -1,6 +1,7 @@
 import moment from 'moment'; 
 import { staticSankeyData } from './components/static-data/staticSankeyData';
 import { staticScatterplotData } from './components/static-data/staticScatterplotData';
+import { staticCalendarData } from './components/static-data/staticCalendardata';
 
 // mock data
 const visitData = [];
@@ -200,4 +201,5 @@ export default {
   'GET  /api/fake_chart_data': getFakeChartData,
   'GET  /api/static_sankey_data': staticSankeyData,
   'GET  /api/static_scatterplot_data': staticScatterplotData(),
+  'GET  /api/static_calendar_data': staticCalendarData,
 };
