@@ -42,7 +42,7 @@ dva 是基于 react+redux 最佳实践上实现的封装方案，简化了redux�
 - 数据状态更新步骤：用户点击按钮或是路由跳转 → 触发dispatch → 发起一个action → 通过reducers改变state数据状态 → 更新前端展示  
 ![dva data flow img](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/dva_data_flow.png)
 - dva 结构 (以 dashboard/log-analysis 为例)  
-![dva structure img](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/dva_structure.png =150x)
+![dva structure img](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/dva_structure.png){:width="150px"}
     - index.jsx 为 react 入口文件，包含系统级组件（Sankey, Sactterplot）丶用户级组件（Calendar, Reportable Events, Radar, Behavior2vec, 以及 Parallel）和通用组件（Filter）
     - model.jsx 包含 state丶reducers丶effects。
         -  state：用於保存数据状态
