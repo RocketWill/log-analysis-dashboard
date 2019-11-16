@@ -42,13 +42,13 @@ dva 是基于 react+redux 最佳实践上实现的封装方案，简化了redux�
 - 数据状态更新步骤：用户点击按钮或是路由跳转 → 触发dispatch → 发起一个action → 通过reducers改变state数据状态 → 更新前端展示  
 ![dva data flow img](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/dva_data_flow.png)
 - dva 结构 (以 dashboard/log-analysis 为例)  
-![dva structure img](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/dva_structure.png){:width="150px"}
-    - index.jsx 为 react 入口文件，包含系统级组件（Sankey, Sactterplot）丶用户级组件（Calendar, Reportable Events, Radar, Behavior2vec, 以及 Parallel）和通用组件（Filter）
-    - model.jsx 包含 state丶reducers丶effects。
-        -  state：用於保存数据状态
-        -  reducers：包含 3 个 reducers，”clear” 用于清除所有数据状态；”setOptions”用于设置用户指定的筛选条件（日期丶指定之用户等）；save 用於将 effect 请求结果更新至 state。
-        -  effect：用於异步获取数据
-    - service.jsx 为服务端接口，目前使用 mock 模拟接口
+<img src="https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/dva_structure.png" width="200px" /> <br>  
+  - index.jsx 为 react 入口文件，包含系统级组件（Sankey, Sactterplot）丶用户级组件（Calendar, Reportable Events, Radar, Behavior2vec, 以及 Parallel）和通用组件（Filter）
+  - model.jsx 包含 state丶reducers丶effects。
+    -  state：用於保存数据状态
+    -  reducers：包含 3 个 reducers，”clear” 用于清除所有数据状态；”setOptions”用于设置用户指定的筛选条件（日期丶指定之用户等）；save 用於将 effect 请求结果更新至 state。
+    -  effect：用於异步获取数据
+  - service.jsx 为服务端接口，目前使用 mock 模拟接口
 ### 约定式路由
 类 next.js 的约定式路由，无需维护冗余的路由配置，支持权限丶动态路由丶嵌套路由等等。
 - 路由配置文件统一写在主目录下的 config/config.js
