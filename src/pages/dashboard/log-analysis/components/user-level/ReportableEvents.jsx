@@ -32,8 +32,11 @@ class ReportableEvents extends Component {
   render() {
     const {loading} = this.props;
     const {reportableEventsData} = this.props.logAnalysis;
+
+    // 只是為了讓 loading 畫面好看一點
+    const cardHeight = loading ? {} : {height: '507px'};
     return (
-      <Card title="Reportable Events" style={{height: '507px'}} loading={loading}>
+      <Card title="Reportable Events" style={cardHeight} loading={loading}>
         {this.listEvents(reportableEventsData)}
       </Card>
     );
