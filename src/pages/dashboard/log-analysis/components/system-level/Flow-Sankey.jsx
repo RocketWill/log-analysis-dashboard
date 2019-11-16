@@ -1,5 +1,5 @@
 import { Card } from 'antd';
-import React, { Component, Suspense } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'dva';
 import ReactEcharts from 'echarts-for-react';
 
@@ -94,7 +94,7 @@ class FlowSankey extends Component {
   });
 
   render() {
-    const sankeyData = this.props.logAnalysis.sankeyData;
+    const {sankeyData} = this.props.logAnalysis;
     console.log(sankeyData["flowData"]);
     return (
       <Card title="Flow Sankey">
