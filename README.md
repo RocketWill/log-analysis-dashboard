@@ -39,9 +39,9 @@ dva 是基于 react+redux 最佳实践上实现的封装方案，简化了redux�
 - 数据流向：数据的改变发生是通过：用户交互行为（用户点击按钮等）丶浏览器行为（如路由跳转等）触发的。当此类行为会改变数据的时候可以通过 dispatch 发起一个 action，action可分为同步和异步：
     - 同步行为会直接通过 reducers 改变 state ，
     - 异步行为会先触发 effects 然后流向 reducers     最终改变 state。通过api获取数据库资料都是使用异步更新（目前使用 mock 模拟 api 数据获取）。
-- 数据状态更新步骤：用户点击按钮或是路由跳转 → 触发dispatch → 发起一个action → 通过reducers改变state数据状态 → 更新前端展示
+- 数据状态更新步骤：用户点击按钮或是路由跳转 → 触发dispatch → 发起一个action → 通过reducers改变state数据状态 → 更新前端展示  
 ![dva data flow img](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/dva_data_flow.png)
-- dva 结构 (以 dashboard/log-analysis 为例)
+- dva 结构 (以 dashboard/log-analysis 为例)  
 ![dva structure img](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/dva_structure.png)
     - index.tsx 为 react 入口文件，包含系统级组件（Sankey, Sactterplot）丶用户级组件（Calendar, Reportable Events, radar, Behavior2vec, 以及 Parallel）和通用组件（Filter）
     - model.tsx 包含 state丶reducers丶effects。
