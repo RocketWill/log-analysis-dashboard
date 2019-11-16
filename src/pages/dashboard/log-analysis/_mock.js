@@ -1,7 +1,9 @@
 import moment from 'moment'; 
 import { staticSankeyData } from './components/static-data/staticSankeyData';
 import { staticScatterplotData } from './components/static-data/staticScatterplotData';
-import { staticCalendarData } from './components/static-data/staticCalendardata';
+import { staticCalendarData } from './components/static-data/staticCalendarData';
+import { staticReportableEventsData } from './components/static-data/staticReportableEvents';
+import { staticRadarData } from './components/static-data/staticRadarData';
 
 // mock data
 const visitData = [];
@@ -194,7 +196,6 @@ const getFakeChartData = {
   salesTypeData,
   salesTypeDataOnline,
   salesTypeDataOffline,
-  radarData,
 };
 
 export default {
@@ -202,4 +203,6 @@ export default {
   'GET  /api/static_sankey_data': staticSankeyData,
   'GET  /api/static_scatterplot_data': staticScatterplotData(),
   'GET  /api/static_calendar_data': staticCalendarData,
+  'GET  /api/static_reportable_events_data': staticReportableEventsData,
+  'GET  /api/static_radar_data': staticRadarData,
 };

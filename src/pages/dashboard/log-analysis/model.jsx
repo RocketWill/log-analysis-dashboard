@@ -1,10 +1,17 @@
-import { fakeChartData, staticSankyData, staticScatterplotData, staticCalendarData } from './service';
+import {
+  fakeChartData,
+  staticSankyData,
+  staticScatterplotData,
+  staticCalendarData,
+  staticReportableEventsData,
+  staticRadarData,
+} from './service';
 
 const initState = {
   params: {
     startTime: '',
     endTime: '',
-    currentUser: ""
+    currentUser: '',
   },
   visitData: [],
   visitData2: [],
@@ -15,10 +22,11 @@ const initState = {
   salesTypeData: [],
   salesTypeDataOnline: [],
   salesTypeDataOffline: [],
-  radarData: [],
   sankeyData: {},
   scatterplotData: {},
-  calendarData: []
+  calendarData: [],
+  reportableEventsData: [],
+  radarData: {}
 };
 const Model = {
   namespace: 'logAnalysis',
@@ -36,7 +44,7 @@ const Model = {
       const response = yield call(staticSankyData);
       yield put({
         type: 'save',
-        payload: {sankeyData: response},
+        payload: { sankeyData: response },
       });
     },
 
@@ -44,7 +52,7 @@ const Model = {
       const response = yield call(staticScatterplotData);
       yield put({
         type: 'save',
-        payload: {scatterplotData: response},
+        payload: { scatterplotData: response },
       });
     },
 
@@ -52,7 +60,23 @@ const Model = {
       const response = yield call(staticCalendarData);
       yield put({
         type: 'save',
-        payload: {calendarData: response},
+        payload: { calendarData: response },
+      });
+    },
+
+    *fetchReportableEventsData(_, { call, put }) {
+      const response = yield call(staticReportableEventsData);
+      yield put({
+        type: 'save',
+        payload: { reportableEventsData: response },
+      });
+    },
+
+    *fetchRadarData(_, { call, put }) {
+      const response = yield call(staticRadarData);
+      yield put({
+        type: 'save',
+        payload: { radarData: response },
       });
     },
 

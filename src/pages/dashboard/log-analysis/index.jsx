@@ -8,7 +8,7 @@ import Filters from './components/Filters';
 import FlowSankey from './components/system-level/Flow-Sankey';
 import Scatterplot from './components/system-level/Scatterplot';
 import Calendar from './components/user-level/Calendar';
-import ErrorLogs from './components/user-level/ErrorLogs';
+import ReportableEvents from './components/user-level/ReportableEvents';
 import Radar from './components/user-level/Radar';
 
 
@@ -121,7 +121,7 @@ class Analysis extends Component {
             </Col>
             <Col span={6}>
               <Suspense fallback={null}>
-                <ErrorLogs />
+                <ReportableEvents />
               </Suspense>
             </Col>
             <Col span={8}>

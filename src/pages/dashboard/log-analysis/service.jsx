@@ -15,3 +15,11 @@ export async function staticScatterplotData() {
 export async function staticCalendarData() {
   return request('/api/static_calendar_data');
 }
+
+export async function staticReportableEventsData() {
+  return request('/api/static_reportable_events_data');
+}
+
+export async function staticRadarData() {
+  return request('/api/static_radar_data');
+}
