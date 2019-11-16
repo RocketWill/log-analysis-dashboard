@@ -1,5 +1,4 @@
 import {
-  fakeChartData,
   staticSankyData,
   staticScatterplotData,
   staticCalendarData,
@@ -27,13 +26,6 @@ const Model = {
   namespace: 'logAnalysis',
   state: initState,
   effects: {
-    *fetch(_, { call, put }) {
-      const response = yield call(fakeChartData);
-      yield put({
-        type: 'save',
-        payload: response,
-      });
-    },
 
     *fetchSankeyData(_, { call, put }) {
       const response = yield call(staticSankyData);
