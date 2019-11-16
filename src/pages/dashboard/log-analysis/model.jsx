@@ -1,6 +1,10 @@
 import { fakeChartData } from './service';
 
 const initState = {
+  params: {
+    startTime: '',
+    endTime: '',
+  },
   visitData: [],
   visitData2: [],
   salesData: [],
@@ -37,6 +41,11 @@ const Model = {
   reducers: {
     save(state, { payload }) {
       return { ...state, ...payload };
+    },
+
+    setOptions(state, { payload }) {
+      const params = { ...state.params, ...payload };
+      return { ...state, ...{ params } };
     },
 
     clear() {
