@@ -2,7 +2,6 @@ import { Col, Dropdown, Icon, Menu, Row } from 'antd';
 import React, { Component, Suspense } from 'react';
 import { GridContent } from '@ant-design/pro-layout';
 import { connect } from 'dva';
-import { getTimeDistance } from './utils/utils';
 import styles from './style.less';
 
 const Filters = React.lazy(() => import('./components/Filters'));
@@ -14,27 +13,15 @@ const Radar = React.lazy(() => import('./components/user-level/Radar'));
 const Behavior2vec = React.lazy(() => import('./components/user-level/Behavior2vec'));
 const Parallel = React.lazy(() => import('./components/user-level/Parallel'));
 
-
-
-
 @connect(({ logAnalysis, loading }) => ({
   logAnalysis,
   loading: loading.effects['logAnalysis/fetch'],
 }))
 class Analysis extends Component {
-  state = {
-    salesType: 'all',
-    currentTabKey: '',
-    rangePickerValue: getTimeDistance('year'),
-  };
-
   reqRef = 0;
-
   timeoutId = 0;
 
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
 
   componentWillUnmount() {
     const { dispatch } = this.props;
@@ -45,10 +32,7 @@ class Analysis extends Component {
     clearTimeout(this.timeoutId);
   }
 
-
   render() {
-    const { logAnalysis, loading } = this.props;
-
     return (
       <GridContent>
         <React.Fragment>

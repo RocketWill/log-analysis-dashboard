@@ -100,14 +100,14 @@ export default {
           routes: [
             {
               path: '/',
-              redirect: '/welcome',
+              redirect: '/dashboard/log-analysis',
             },
-            {
-              path: '/welcome',
-              name: 'welcome',
-              icon: 'smile',
-              component: './Welcome',
-            },
+            // {
+            //   path: '/welcome',
+            //   name: 'welcome',
+            //   icon: 'smile',
+            //   component: './Welcome',
+            // },
             // {
             //   path: '/admin',
             //   name: 'admin',
@@ -115,12 +115,6 @@ export default {
             //   component: './Admin',
             //   authority: ['admin'],
             // },
-            {
-              name: 'analysis',
-              icon: 'smile',
-              path: '/dashboard/analysis',
-              component: './dashboard/analysis',
-            },
             {
               name: 'Dashboard',
               icon: 'dashboard',
