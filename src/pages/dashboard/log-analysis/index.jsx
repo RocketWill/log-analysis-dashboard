@@ -2,10 +2,11 @@ import { Col, Dropdown, Icon, Menu, Row } from 'antd';
 import React, { Component, Suspense } from 'react';
 import { GridContent } from '@ant-design/pro-layout';
 import { connect } from 'dva';
-import PageLoading from './components/PageLoading';
 import { getTimeDistance } from './utils/utils';
 import styles from './style.less';
 import Filters from './components/Filters';
+import FlowSankey from './components/system-level/Flow-Sankey';
+import Scatterplot from './components/system-level/Scatterplot';
 
 @connect(({ logAnalysis, loading }) => ({
   logAnalysis,
@@ -90,14 +91,14 @@ class Analysis extends Component {
               marginTop: 24,
             }}
           >
-            <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Col span={14}>
               <Suspense fallback={null}>
-                <h1>Hello</h1>
+                <FlowSankey />
               </Suspense>
             </Col>
-            <Col xl={12} lg={24} md={24} sm={24} xs={24}>
+            <Col span={10}>
               <Suspense fallback={null}>
-                <h1>Hello</h1>
+                <Scatterplot />
               </Suspense>
             </Col>
           </Row>

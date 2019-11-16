@@ -1,4 +1,4 @@
-import { fakeChartData } from './service';
+import { fakeChartData, staticSankyData } from './service';
 
 const initState = {
   params: {
@@ -15,6 +15,7 @@ const initState = {
   salesTypeDataOnline: [],
   salesTypeDataOffline: [],
   radarData: [],
+  sankeyData: {}
 };
 const Model = {
   namespace: 'logAnalysis',
@@ -25,6 +26,14 @@ const Model = {
       yield put({
         type: 'save',
         payload: response,
+      });
+    },
+
+    *fetchSankeyData(_, { call, put }) {
+      const response = yield call(staticSankyData);
+      yield put({
+        type: 'save',
+        payload: {sankeyData: response},
       });
     },
 

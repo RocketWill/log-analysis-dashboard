@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { staticSankeyData } from './components/system-level/staticSankeyData';
 // mock data
 const visitData = [];
 const beginDay = new Date().getTime();
@@ -192,6 +193,8 @@ const getFakeChartData = {
   salesTypeDataOffline,
   radarData,
 };
+
 export default {
   'GET  /api/fake_chart_data': getFakeChartData,
+  'GET  /api/static_sankey_data': staticSankeyData,
 };
