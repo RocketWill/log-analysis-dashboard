@@ -3,7 +3,7 @@
 This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
 
 ## Prototype
-![alt text](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/image/demo.png)
+![alt text](https://raw.githubusercontent.com/RocketWill/log-analysis-dashboard/master/images/demo.png)
 
 ## Environment Prepare
 
