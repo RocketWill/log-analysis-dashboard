@@ -15,8 +15,8 @@ class FlowSankey extends Component {
     });
   }
 
-  getChartOptions = ({ totalDataNumber, totalNodeNumber, flowData }) => ({
-    color: ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'],
+  getChartOptions = ({ totalDataNumber, totalNodeNumber, flowData }, themeColor) => ({
+    color: themeColor,
     // title: {
     //   text: 'Sankey Diagram',
     //   textStyle: {
@@ -95,11 +95,12 @@ class FlowSankey extends Component {
 
   render() {
     const {sankeyData} = this.props.logAnalysis;
+    const themeColor = ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'];
     return (
       <Card title="Flow Sankey">
         {sankeyData['flowData'] && (
           <ReactEcharts
-            option={this.getChartOptions(sankeyData)}
+            option={this.getChartOptions(sankeyData, themeColor)}
             notMerge={true}
             style={{height: '600px', width: '100%'}}
             lazyUpdate={true}

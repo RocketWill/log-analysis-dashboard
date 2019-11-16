@@ -17,9 +17,9 @@ class Scatterplot extends Component {
     });
   }
 
-  getChartOptions = ({report1, report2, report3}) => (
+  getChartOptions = ({report1, report2, report3}, themeColor) => (
     {
-      color: ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'],
+      color: themeColor,
       legend: {
         y: "top",
         data: ["app crash", "service error", "defender"],
@@ -148,12 +148,13 @@ class Scatterplot extends Component {
   );
 
   render() {
+    const themeColor = ['#4E6FFA', '#8762FF', '#FF5C79', '#FF7E53'];
     const {scatterplotData} = this.props.logAnalysis;
     return (
       <Card title="Scatterplot">
         {scatterplotData && (
           <ReactEcharts
-            option={this.getChartOptions(scatterplotData)}
+            option={this.getChartOptions(scatterplotData, themeColor)}
             notMerge={true}
             style={{height: '600px', width: '100%'}}
             lazyUpdate={true}

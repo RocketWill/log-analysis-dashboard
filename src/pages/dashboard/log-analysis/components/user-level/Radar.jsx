@@ -85,13 +85,11 @@ class Radar extends Component {
   )
 
   getDisplayData = (radarData, currentUser) => {
-      console.log(currentUser);
     if(!radarData) return;
     if(!currentUser){
         return radarData.radarDataAll;
     }
     else {
-        console.log(radarData.radarDataWithUser[currentUser]);
         return [radarData.radarDataWithUser[currentUser]];
     }
   }

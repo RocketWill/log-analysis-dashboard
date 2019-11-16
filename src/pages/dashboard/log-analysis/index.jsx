@@ -10,6 +10,8 @@ import Scatterplot from './components/system-level/Scatterplot';
 import Calendar from './components/user-level/Calendar';
 import ReportableEvents from './components/user-level/ReportableEvents';
 import Radar from './components/user-level/Radar';
+import Behavior2vec from './components/user-level/Behavior2vec';
+import Parallel from './components/user-level/Parallel';
 
 
 @connect(({ logAnalysis, loading }) => ({
@@ -28,12 +30,7 @@ class Analysis extends Component {
   timeoutId = 0;
 
   componentDidMount() {
-    const { dispatch } = this.props;
-    this.reqRef = requestAnimationFrame(() => {
-      dispatch({
-        type: 'logAnalysis/fetch',
-      });
-    });
+    
   }
 
   componentWillUnmount() {
@@ -45,31 +42,9 @@ class Analysis extends Component {
     clearTimeout(this.timeoutId);
   }
 
-  handleRangePickerChange = rangePickerValue => {
-    const { dispatch } = this.props;
-    this.setState({
-      rangePickerValue,
-    });
-    dispatch({
-      type: 'logAnalysis/fetchSalesData',
-    });
-  };
 
   render() {
-    const { rangePickerValue, salesType, currentTabKey } = this.state;
     const { logAnalysis, loading } = this.props;
-    const {
-      visitData,
-      visitData2,
-      salesData,
-      searchData,
-      offlineData,
-      offlineChartData,
-      salesTypeData,
-      salesTypeDataOnline,
-      salesTypeDataOffline,
-    } = logAnalysis;
-    let salesPieData;
 
     return (
       <GridContent>
@@ -130,9 +105,32 @@ class Analysis extends Component {
               </Suspense>
             </Col>
           </Row>
-          <Suspense fallback={null}>
-            <h1>Hello</h1>
-          </Suspense>
+          <Row
+            gutter={24}
+            type="flex"
+            style={{
+              marginTop: 24,
+            }}
+          >
+            <Col span={24}>
+              <Suspense fallback={null}>
+                <Behavior2vec />
+              </Suspense>
+            </Col>
+          </Row>
+          <Row
+            gutter={24}
+            type="flex"
+            style={{
+              marginTop: 24,
+            }}
+          >
+            <Col span={24}>
+              <Suspense fallback={null}>
+                <Parallel />
+              </Suspense>
+            </Col>
+          </Row>
         </React.Fragment>
       </GridContent>
     );

@@ -23,3 +23,7 @@ export async function staticReportableEventsData() {
 export async function staticRadarData() {
   return request('/api/static_radar_data');
 }
+
+export async function staticBehavior2vecData() {
+  return request('/api/static_behavior2vec_data');
+}

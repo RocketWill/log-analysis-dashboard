@@ -5,6 +5,7 @@ import {
   staticCalendarData,
   staticReportableEventsData,
   staticRadarData,
+  staticBehavior2vecData,
 } from './service';
 
 const initState = {
@@ -13,20 +14,12 @@ const initState = {
     endTime: '',
     currentUser: '',
   },
-  visitData: [],
-  visitData2: [],
-  salesData: [],
-  searchData: [],
-  offlineData: [],
-  offlineChartData: [],
-  salesTypeData: [],
-  salesTypeDataOnline: [],
-  salesTypeDataOffline: [],
   sankeyData: {},
   scatterplotData: {},
   calendarData: [],
   reportableEventsData: [],
-  radarData: {}
+  radarData: {},
+  behavior2vecData: {}
 };
 const Model = {
   namespace: 'logAnalysis',
@@ -77,6 +70,14 @@ const Model = {
       yield put({
         type: 'save',
         payload: { radarData: response },
+      });
+    },
+
+    *fetchBehavior2vecData(_, { call, put }) {
+      const response = yield call(staticBehavior2vecData);
+      yield put({
+        type: 'save',
+        payload: { behavior2vecData: response },
       });
     },
 
